@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="no_movie_placeholder_color">#000000</color>
+
+    <color name="favourite_tint_color_active">#ffe600</color>
+    <color name="favourite_tint_color_inactive">#000000</color>
+</resources>

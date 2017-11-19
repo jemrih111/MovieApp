@@ -1,0 +1,145 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="movie"
+            type="app.movie.com.movieapp.web.data.Movie"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".mvp.details.DetailsActivity">
+
+                <FrameLayout
+                    android:id="@+id/fl_details_topbar_placeholder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/iv_details_banner"
+                    android:layout_width="@dimen/details_poster_image_width"
+                    android:layout_height="@dimen/details_poster_image_height"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/no_movie_placeholder_color"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fl_details_topbar_placeholder"/>
+
+                <TextView
+                    android:id="@+id/tv_movie_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:maxLines="2"
+                    android:text="@{movie.title}"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/iv_details_banner"
+                    app:layout_constraintTop_toTopOf="@+id/iv_details_banner"
+                    tools:text="Iron man"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="8dp"/>
+
+                <TextView
+                    android:id="@+id/tv_movie_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{movie.plot}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_details_banner"
+                    tools:text="When Tony Stark's world is torn apart by a formidable terrorist called the Mandarin, he starts an odyssey of rebuilding and retribution."/>
+
+
+                <TextView
+                    android:id="@+id/tv_imdb_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text='@{@string/details_imdb + movie.imdbRating}'
+                    app:layout_constraintStart_toEndOf="@+id/iv_details_banner"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_movie_title"
+                    tools:text="Imdb: 8.5"/>
+
+                <TextView
+                    android:id="@+id/tv_meta_critic_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text='@{@string/details_metacritic + movie.imdbRating}'
+                    app:layout_constraintStart_toEndOf="@+id/iv_details_banner"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_imdb_rating"
+                    tools:text="Metacritic: 2.4"/>
+
+                <View
+                    android:id="@+id/v_divider"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorPrimaryDark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_movie_description"/>
+
+                <ImageView
+                    android:id="@+id/iv_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/v_divider"
+                    app:srcCompat="@drawable/ic_av_timer"/>
+
+                <TextView
+                    android:id="@+id/tv_movie_runtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{movie.runtime}"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_timer"
+                    app:layout_constraintStart_toEndOf="@+id/iv_timer"
+                    app:layout_constraintTop_toTopOf="@+id/iv_timer"
+                    tools:text="130 min"/>
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+        <View
+            android:id="@+id/v_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            tools:visibility="gone"/>
+
+        <ProgressBar
+            android:id="@+id/pb_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+</layout>

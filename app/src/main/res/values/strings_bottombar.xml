@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bottombar_tab_favourites">Favourites</string>
+    <string name="bottombar_tab_movies">Movies</string>
+</resources>

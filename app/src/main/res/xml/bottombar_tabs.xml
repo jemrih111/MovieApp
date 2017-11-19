@@ -1,0 +1,15 @@
+<tabs>
+    <tab
+        id="@+id/tab_movies"
+        icon="@drawable/ic_local_movies"
+        title="@string/bottombar_tab_movies"
+        inActiveColor="@color/bottombar_icon_inactive"
+        activeColor="@color/bottombar_icon_active"/>
+
+    <tab
+        id="@+id/tab_favourites"
+        icon="@drawable/ic_star"
+        inActiveColor="@color/bottombar_icon_inactive"
+        activeColor="@color/bottombar_icon_active"
+        title="@string/bottombar_tab_favourites" />
+</tabs>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bottombar_background_color">#c10000</color>
+    <color name="bottombar_icon_inactive">#ff3838</color>
+    <color name="bottombar_icon_active">#fff8f8</color>
+</resources>
